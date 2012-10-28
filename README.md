@@ -1,3 +1,8 @@
+Crush + Lovely's Fork of essh's Nginx Buildpack
+================================================
+
+This fork defaults to a newer build of nginx, stored on our own S3 bucket.
+
 Heroku buildpack: nginx
 =======================
 
@@ -49,23 +54,27 @@ To change the vendored binaries for nginx use the helper script in the
 the nginx build options to suit your needs. You'll need an S3-enabled
 AWS account and a bucket to store your binaries in.
 
-For example, you can change the vendored version of nginx to 1.0.12.
+For example, you can change the vendored version of nginx to 1.2.4.
 
-First you'll need to build a Heroku-compatible version of nginx:
+First, make sure you have a vulcan build server:
 
-    $  export AWS_ID=xxx AWS_SECRET=yyy S3_BUCKET=zzz
+    $ vulcan create my-awesome-build-server
+
+Then build your own Heroku-compatible version of nginx:
+
+    $ export AWS_ID=XXX AWS_SECRET=XXX S3_BUCKET=XXX
     $ s3 create $S3_BUCKET
-    $ support/package_nginx 1.0.12 8.30
+    $ support/package_nginx 1.2.4 8.31
 
 The first argument to the package_nginx script is the nginx version. The
 second argument is the version of PCRE to compile nginx against.
 
 Open `bin/compile` in your editor, and change the following lines:
 
-    NGINX_VERSION="1.0.12"
-    S3_BUCKET=zzz
+    NGINX_VERSION="1.2.4"
+    S3_BUCKET=XXX
 
 Commit and push the changes to your buildpack to your Github fork, then push
 your sample app to Heroku to test. You should see:
 
-    -----> Vendoring nginx 1.0.12
+    -----> Vendoring nginx 1.2.4

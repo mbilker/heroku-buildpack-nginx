@@ -4,8 +4,8 @@
 set -e
 
 # config
-NGINX_VERSION="1.0.14"
-S3_BUCKET="essh-heroku-buildpack-nginx"
+NGINX_VERSION="1.2.4"
+S3_BUCKET="crushlovely-heroku-buildpacks"
 
 # parse and derive params
 BUILD_DIR=$1
