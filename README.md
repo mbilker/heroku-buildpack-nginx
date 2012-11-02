@@ -1,4 +1,4 @@
-Crush + Lovely's Fork of essh's Nginx Buildpack
+mbilker's Fork of essh's Nginx Buildpack
 ================================================
 
 This fork defaults to a newer build of nginx, stored on our own S3 bucket.
@@ -21,7 +21,7 @@ Example usage:
     html:
     index.html
 
-    $ heroku create --stack cedar --buildpack http://github.com/essh/heroku-buildpack-nginx.git
+    $ heroku create --stack cedar --buildpack http://github.com/mbilker/heroku-buildpack-nginx.git
     ...
 
     $ git push heroku master
@@ -30,7 +30,7 @@ Example usage:
     -----> Fetching custom buildpack... done
     -----> Nginx app detected
     -----> Fetching nginx binaries
-    -----> Vendoring nginx 1.0.11
+    -----> Vendoring nginx 1.2.4
     ...
 
 The buildpack will detect your app as nginx if it has the file

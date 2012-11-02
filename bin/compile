@@ -5,14 +5,15 @@ set -e
 
 # config
 NGINX_VERSION="1.2.4"
-S3_BUCKET="crushlovely-heroku-buildpacks"
+#S3_BUCKET=""
 
 # parse and derive params
 BUILD_DIR=$1
 CACHE_DIR=$2
 
 # s3 packages
-NGINX_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/nginx-${NGINX_VERSION}.tgz"
+#NGINX_PACKAGE="http://${S3_BUCKET}.s3.amazonaws.com/nginx-${NGINX_VERSION}.tgz"
+NGINX_PACKAGE="http://mbilker.us/nginx/nginx-${NGINX_VERSION}.tgz"
 
 # vendor directories
 VENDORED_NGINX=$(mktemp -d -t nginx.XXXXXX)
